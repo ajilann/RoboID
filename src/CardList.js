@@ -12,14 +12,13 @@ const CardList = ({Robots}) => {
 } */
    
 const CardList = ({Robots}) => {
-    return (  
-    
+    return (    
     <div>
         {
         Robots.map((user, i) =>
             {
             return (
-            <Card key= {1} 
+            <Card key= {i} 
             id={Robots[i].id}
             name={Robots[i].name}
             username={Robots[i].username}
