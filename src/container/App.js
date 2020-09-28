@@ -4,7 +4,8 @@ import {Robots} from '../components/Robots';
 import CardList from '../components/CardList';
 import SearchBox from '../components/SearchBox';
 import './App.css';
-import Scroll from '../components/Scroll'
+import Scroll from '../components/Scroll';
+import ErrorBoundry from '../components/ErrorBoundry';
 
 class App extends Component {
   constructor(){
@@ -29,7 +30,7 @@ class App extends Component {
 
   render() {
     const { robots, searchfield } = this.state; 
-    console.log("render- 3");
+    //console.log("render- 3");
     const filteredRobots = robots.filter(robots => {
       return robots.name.toLocaleLowerCase().includes(searchfield.toLocaleLowerCase())
      })
@@ -39,7 +40,9 @@ class App extends Component {
     <h1>Robotic People</h1>
     <SearchBox searchChange = {this.onSearchChange}/>
     <Scroll>
+      <ErrorBoundry>
     <CardList Robots={filteredRobots} />
+    </ErrorBoundry>
     </Scroll >
   </div>
   
